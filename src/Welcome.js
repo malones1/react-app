@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Voting from "./Voting";
 
 class Welcome extends React.Component {
     constructor(props) {

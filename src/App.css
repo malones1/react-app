@@ -2,3 +2,46 @@
     margin: 1rem;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+@media only screen and (max-width: 768px) {
+    .sidebar {
+      background-color: aqua;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .sidebar {
+      background-color: #fff;
+    }
+}
+
+.w-100 {
+    width: 100px;
+}
+
+.bg {
+    background-color: #e6e6e6;
+}
+
+div.w-100 {
+    padding-left: 1.25rem;
+}
+
+html {
+    background-color: #e6e6e6;
+}
+
+.sidebar {
+    transition: 0.5s;
+    height: 100%;
+    position: fixed;
+    right: 0px;
+    width: 0px;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.w-100>div {
+    padding-top: 6px;
+    margin-right: 23px;
+}

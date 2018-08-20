@@ -1,4 +1,11 @@
 import React, { Component} from "react";
+import App from "./App";
+
+function formatDate(d) {
+  d = new Date(d);
+  return d.toLocaleDateString();
+}
+
 
 class Voting extends React.Component {
     constructor(props) {
@@ -20,7 +27,7 @@ class Voting extends React.Component {
 
     handleVoteClick(e) {
       var data = JSON.stringify({username: "orticon", votingId: this.state.voting.ID, answers: this.state.answers})
-      fetch(App.serverAddr() + "/toVote", { method: 'POST', body: data })
+      fetch(App.serverAddr() + "/toVote", { method: 'POST', body: data, mode: 'cors' })
       .then((response) => {
           return new Promise((res, rej) => {
             if (response.ok) {

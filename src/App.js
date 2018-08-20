@@ -5,6 +5,7 @@ import Welcome from "./Welcome";
 import checklist from "./../public/svg/checklist.svg";
 import gear from "./../public/svg/gear.svg";
 import person from "./../public/svg/person.svg";
+import './bootstrap-4.1.2/dist/css/bootstrap.min.css'
 
 /*class App extends Component{
   render(){
@@ -38,7 +39,7 @@ class App extends React.Component {
 
   addVoting(e) {
     e.preventDefault();
-    fetch(App.serverAddr() + '/add', {mode: "no-cors"})
+    fetch(App.serverAddr() + '/add', {mode: "cors"})
       .then(res => res.json())
       .then((json) => {
         this.state.items.push(json);
@@ -58,7 +59,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(App.serverAddr() + "/vote", { method: 'GET', mode: "no-cors" })
+    fetch(App.serverAddr() + "/vote/", { method: 'GET', mode: "cors" })
       .then(res => {
         console.log(res);
         return res.json()
