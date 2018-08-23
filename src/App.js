@@ -5,7 +5,8 @@ import Welcome from "./Welcome";
 import checklist from "./../public/svg/checklist.svg";
 import gear from "./../public/svg/gear.svg";
 import person from "./../public/svg/person.svg";
-import './bootstrap-4.1.2/dist/css/bootstrap.min.css'
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /*class App extends Component{
   render(){
