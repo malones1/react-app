@@ -92,6 +92,13 @@ class App extends React.Component {
       );
   }
 
+  onAddNewVoting(data) {
+    this.state.items.push(data);
+    this.setState({
+      items: this.state.items
+    });
+}
+
   render() {
 
     return (
@@ -106,17 +113,17 @@ class App extends React.Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
+              <li className="nav-item active d-none">
                 <a className="nav-link" href="#">
                   Список
                   <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item d-none">
                 <a className="nav-link" href="#" onClick={(e) => this.addVoting(e)}>
                   Добавить</a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item d-none">
                 <a className="nav-link" href="#">Отчет</a>
               </li>
             </ul>
@@ -156,7 +163,7 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-        <AddVotingForm />
+        <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />
       </div>
     )
   }

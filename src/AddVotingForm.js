@@ -1,11 +1,14 @@
 import React, { Component} from "react";
 import Question from "./Question";
+import App from "./App";
 
 class AddVotingForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        questions: []
+        questions: [],
+        date: undefined,
+        name: ""
       };
 
       this.AddQuestionOnClick = this.AddQuestionOnClick.bind(this);
@@ -24,7 +27,12 @@ class AddVotingForm extends React.Component {
 
     PostOnClick(e) {
       e.preventDefault();
-      console.log(this.state);
+
+      fetch(App.serverAddr() + '/add', {mode: "cors"})
+        .then(res => res.json())
+        .then((json) => {
+          this.props.onAddNewVoting(json);
+        });
     }
 
     QuestionNameOnChange(e) {
@@ -39,6 +47,14 @@ class AddVotingForm extends React.Component {
       this.setState({questions});
     }
 
+    DateOnChange(e) {
+      this.setState({date: e.target.value});
+    }
+    
+    NameOnChange(e) {
+      this.setState({name: e.target.value});
+    }
+
     render() {
       return (
         <div className="container-fluid">
@@ -48,12 +64,12 @@ class AddVotingForm extends React.Component {
               <form>
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Тема голосования</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите тему голосования" />
+                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите тему голосования" onChange={(e) => this.NameOnChange(e)} />
                   <small id="emailHelp" className="form-text text-muted"></small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Срок голосования</label>
-                  <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Проголосовать до" />
+                  <input type="date" className="form-control" id="exampleInputPassword1" placeholder="Проголосовать до" onChange={(e) => this.DateOnChange(e)} />
                 </div>
                 {this.state.questions.map((item, i, arr) => 
                   (<Question key={i} item={item} i={i+1} QuestionNameOnChange={(e) => this.QuestionNameOnChange(e)} OptionsListOnChange={(e) => this.OptionsListOnChange(e)} />)
