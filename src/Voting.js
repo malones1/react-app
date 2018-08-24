@@ -68,7 +68,7 @@ class Voting extends React.Component {
 
     render() {
       return (
-        <div className="card card-body mt-3">
+        <div className="card card-body mt-3 bg">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-10">
@@ -79,17 +79,17 @@ class Voting extends React.Component {
               </div>
             </div>  
           </div>
-          <ul className="list-group border-0">
+          <ul className="list-group border-0 bg">
             {this.state.voting.Questions.map(q => (
-              <li className="list-group-item border-0" key={q.ID}>{q.Name}
-                <select className="form-control" name={q.ID} value={this.getSelect(q)} onChange={(e) => this.handleOptionChange(e, q.ID)}>
+              <li className="list-group-item border-0 bg" key={q.ID}>{q.Name}
+                <select className="form-control form-control-sm" name={q.ID} value={this.getSelect(q)} onChange={(e) => this.handleOptionChange(e, q.ID)}>
                   {q.Options.map(o => (<option key={o.ID} value={o.ID}>{o.Name}</option>))}
                 </select>
               </li> 
             ))} 
           </ul>  
           <div className="w-100">
-            <button type="button" className="btn btn-outline-info" onClick={(e) => this.handleVoteClick(e)}>Отправить</button>
+            <button type="button" className="btn btn-outline-info btn-sm" onClick={(e) => this.handleVoteClick(e)}>Отправить</button>
             <div className="float-right">Проголосовали человек: {this.state.voters}</div>
           </div>
         </div>)

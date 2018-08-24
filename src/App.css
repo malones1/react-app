@@ -19,8 +19,13 @@
     width: 100px;
 }
 
-.bg {
-    background-color: #e6e6e6;
+.card.bg, .bg, li.bg {
+    /* background-color: #e6e6e6; */
+    background-color: #f5f2f0;
+}
+
+.card.bg {
+    padding: 1rem;
 }
 
 div.w-100 {
@@ -28,7 +33,7 @@ div.w-100 {
 }
 
 html {
-    background-color: #e6e6e6;
+    /* background-color: #e6e6e6; */
 }
 
 .sidebar {

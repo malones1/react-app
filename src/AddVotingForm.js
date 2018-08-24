@@ -28,7 +28,10 @@ class AddVotingForm extends React.Component {
     PostOnClick(e) {
       e.preventDefault();
 
-      fetch(App.serverAddr() + '/add', {mode: "cors"})
+      var data = JSON.stringify(this.state);
+      console.log(data);
+
+      fetch(App.serverAddr() + '/add', {method: 'POST', mode: 'cors', body: data})
         .then(res => res.json())
         .then((json) => {
           this.props.onAddNewVoting(json);
@@ -60,23 +63,23 @@ class AddVotingForm extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-7 col-sm-7">
-              <div className="card card-body mt-3">
+              <div className="card card-body mt-3 bg">
               <form>
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Тема голосования</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите тему голосования" onChange={(e) => this.NameOnChange(e)} />
+                  <input type="email" className="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите тему голосования" onChange={(e) => this.NameOnChange(e)} />
                   <small id="emailHelp" className="form-text text-muted"></small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Срок голосования</label>
-                  <input type="date" className="form-control" id="exampleInputPassword1" placeholder="Проголосовать до" onChange={(e) => this.DateOnChange(e)} />
+                  <input type="date" className="form-control form-control-sm" id="exampleInputPassword1" placeholder="Проголосовать до" onChange={(e) => this.DateOnChange(e)} />
                 </div>
                 {this.state.questions.map((item, i, arr) => 
                   (<Question key={i} item={item} i={i+1} QuestionNameOnChange={(e) => this.QuestionNameOnChange(e)} OptionsListOnChange={(e) => this.OptionsListOnChange(e)} />)
                 )}
-                <button type="button" className="btn btn-outline-secondary mb-3 btn-block" 
+                <button type="button" className="btn btn-outline-info mb-3 mr-3 btn-sm" 
                       onClick={(e) => this.AddQuestionOnClick(e)}>Добавить вопрос</button>
-                <button type="button" className="btn btn-outline-secondary mb-3 btn-block" 
+                <button type="button" className="btn btn-outline-info mb-3 btn-sm" 
                       onClick={(e) => this.PostOnClick(e)}>Сохранить</button>
               </form>
               </div>

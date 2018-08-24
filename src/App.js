@@ -144,22 +144,15 @@ class App extends React.Component {
             </div>
           </div>
         </nav>
-        <div id="sidebar1" className="sidebar" style={{ bottom: "0px" }} onClick={(e) => this.sidebarClick(e)}>
+        <div id="sidebar1" className="sidebar bg" style={{ bottom: "0px" }} onClick={(e) => this.sidebarClick(e)}>
           <button type="button" className="close mr-3 mt-3" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="container-fluid bg">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-7 col-sm-7">
               {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>}
-            </div>
-          </div>
-        </div>
-        <div className="container-fluid bg">
-          <div className="row">
-            <div className="col-md-7 col-sm-7">
-              <div id="voting"></div>
             </div>
           </div>
         </div>
