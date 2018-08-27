@@ -106,6 +106,7 @@ class App extends React.Component {
     //   el,
     //   document.getElementById("content")
     // );
+    e.preventDefault();
     this.setState({
       currentTab: "votingsList",
       tabContent: this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>  
@@ -118,6 +119,7 @@ class App extends React.Component {
     //   el,
     //   document.getElementById("content")
     // );
+    e.preventDefault();
     this.setState({
       currentTab: "addNewVoting",
       tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />  
