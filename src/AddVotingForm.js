@@ -60,7 +60,7 @@ class AddVotingForm extends React.Component {
 
     render() {
       return (
-        <div className="container-fluid">
+        // <div className="container-fluid">
           <div className="row">
             <div className="col-md-7 col-sm-7">
               <div className="card card-body mt-3 bg">
@@ -85,7 +85,7 @@ class AddVotingForm extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        // </div>
       )
     }
   }

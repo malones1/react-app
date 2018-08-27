@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import "./App.css";
 import AddVotingForm from "./AddVotingForm";
 import Welcome from "./Welcome";
@@ -22,7 +23,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      currentTab: "votingsList" 
     };
   }
 
@@ -97,9 +98,43 @@ class App extends React.Component {
     this.setState({
       items: this.state.items
     });
-}
+  }
+
+  showVotingsList(e) {
+    // const el = this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>;
+    // ReactDOM.render(
+    //   el,
+    //   document.getElementById("content")
+    // );
+    this.setState({
+      currentTab: "votingsList",
+      tabContent: this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>  
+    });
+  }
+
+  showAddPage(e) {
+    // const el = <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />;
+    // ReactDOM.render(
+    //   el,
+    //   document.getElementById("content")
+    // );
+    this.setState({
+      currentTab: "addNewVoting",
+      tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />  
+    });
+  }
+
+  getDefaultTab() {
+    return <Welcome votingList={this.state.items} />;
+  }
 
   render() {
+    // const tabs = [
+    //   {name: "votingsList", content: ""},
+    //   {name: "addNewVoting", content: ""}
+    // ];
+
+    var currentTabContent = this.state.isLoaded ? this.state.tabContent != undefined ? this.state.tabContent : this.getDefaultTab() : <span></span>;
 
     return (
       <div>
@@ -150,13 +185,24 @@ class App extends React.Component {
           </button>
         </div>
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-7 col-sm-7">
-              {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>}
+          <div className="d-flex flex-row">
+            <div>
+              <a className="pr-2" href="#" onClick={(e) => this.showVotingsList(e)}>Список голосований</a>
+            </div>
+            <div>
+              <a className="p-2" href="#" onClick={(e) => this.showAddPage(e)}>Добавить голосование</a>
             </div>
           </div>
         </div>
-        <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-7 col-sm-7" id="content">
+              {/* {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>} */}
+              {currentTabContent}
+            </div>
+          </div>
+        </div>
+        {/* <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} /> */}
       </div>
     )
   }
