@@ -8,6 +8,7 @@ import gear from "./../public/svg/gear.svg";
 import person from "./../public/svg/person.svg";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RegistrationForm from "./RegistrationForm";
 
 /*class App extends Component{
   render(){
@@ -50,10 +51,6 @@ class App extends React.Component {
         });
       }
       )
-    // this.state.items.push(this.state.items[this.state.items.length - 1]);
-    //   this.setState({
-    //     items: this.state.items
-    //   });
   }
 
   getVotingList() {
@@ -101,11 +98,6 @@ class App extends React.Component {
   }
 
   showVotingsList(e) {
-    // const el = this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>;
-    // ReactDOM.render(
-    //   el,
-    //   document.getElementById("content")
-    // );
     e.preventDefault();
     this.setState({
       currentTab: "votingsList",
@@ -114,16 +106,19 @@ class App extends React.Component {
   }
 
   showAddPage(e) {
-    // const el = <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />;
-    // ReactDOM.render(
-    //   el,
-    //   document.getElementById("content")
-    // );
     e.preventDefault();
     this.setState({
       currentTab: "addNewVoting",
       tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />  
     });
+  }
+
+  showRegistationForm(e) {
+    e.preventDefault();
+    this.setState({
+      currentTab: "registrationForm",
+      tabContent: <RegistrationForm />
+    })
   }
 
   getDefaultTab() {
@@ -174,9 +169,9 @@ class App extends React.Component {
                 <img src={person} width="20" height="20" alt="" />
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink1">
-                <a className="dropdown-item" href="#">Action</a>
-                <a className="dropdown-item" href="#">Another action</a>
-                <a className="dropdown-item" href="#">Something else here</a>
+                <a className="dropdown-item" href="#" onClick={(e) => this.showRegistationForm(e)}>Регистрация</a>
+                <a className="dropdown-item" href="#">Войти</a>
+                <a className="dropdown-item" href="#">Профиль</a>
               </div>
             </div>
           </div>
@@ -196,11 +191,11 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-7 col-sm-7" id="content">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col" id="content">
               {/* {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>} */}
-              {currentTabContent}
+              <div className="mt-4">{currentTabContent}</div>
             </div>
           </div>
         </div>

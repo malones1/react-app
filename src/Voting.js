@@ -68,7 +68,7 @@ class Voting extends React.Component {
 
     render() {
       return (
-        <div className="card card-body mt-3 bg">
+        <div className="card card-body bg">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-10">
