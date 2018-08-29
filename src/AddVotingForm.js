@@ -65,14 +65,16 @@ class AddVotingForm extends React.Component {
       //     <div className="col">
       //       <div className="card card-body mt-3 bg">
       // <div className="mt-3">
+      <div>
+      <h1>Создать новое голосование</h1>
         <form>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Тема голосования</label>
+            <label htmlFor="exampleInputEmail1" className="font-weight-bold">Тема голосования *</label>
             <input type="email" className="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите тему голосования" onChange={(e) => this.NameOnChange(e)} />
             <small id="emailHelp" className="form-text text-muted"></small>
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Срок голосования</label>
+            <label htmlFor="exampleInputPassword1" className="font-weight-bold">Срок голосования *</label>
             <input type="date" className="form-control form-control-sm" id="exampleInputPassword1" placeholder="Проголосовать до" onChange={(e) => this.DateOnChange(e)} />
           </div>
           {this.state.questions.map((item, i, arr) =>
@@ -83,6 +85,7 @@ class AddVotingForm extends React.Component {
           <button type="button" className="btn btn-outline-info mb-3 btn-sm"
             onClick={(e) => this.PostOnClick(e)}>Сохранить</button>
         </form>
+        </div>
       // </div>
       //     </div>
       //   </div>

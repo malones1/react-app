@@ -24,7 +24,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: "votingsList" 
+      currentTab: "votingsList"
     };
   }
 
@@ -34,15 +34,19 @@ class App extends React.Component {
 
   sidebarClick() {
     document.getElementById("sidebar1").style.width = "0";
+    document.getElementById("closeButton").style.display = "none";
   }
 
   sidebarClick1() {
     document.getElementById("sidebar1").style.width = "300px";
+    setTimeout(() => {
+      document.getElementById("closeButton").style.display = "";
+    }, 500);
   }
 
   addVoting(e) {
     e.preventDefault();
-    fetch(App.serverAddr() + '/add', {mode: "cors"})
+    fetch(App.serverAddr() + '/add', { mode: "cors" })
       .then(res => res.json())
       .then((json) => {
         this.state.items.push(json);
@@ -101,7 +105,7 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       currentTab: "votingsList",
-      tabContent: this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>  
+      tabContent: this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>
     });
   }
 
@@ -109,7 +113,7 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       currentTab: "addNewVoting",
-      tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />  
+      tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />
     });
   }
 
@@ -176,10 +180,20 @@ class App extends React.Component {
             </div>
           </div>
         </nav>
-        <div id="sidebar1" className="sidebar bg" style={{ bottom: "0px" }} onClick={(e) => this.sidebarClick(e)}>
-          <button type="button" className="close mr-3 mt-3" aria-label="Close">
+        <div id="sidebar1" className="sidebar bg border border-light" style={{ bottom: "0px" }} onClick={(e) => this.sidebarClick(e)}>
+          {/* <button type="button" className="close mr-3 mt-3" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> */}
+          <div className="clearfix bg-info p-3">
+            <div className="float-left">
+              <div className="">Чат</div>
+            </div>
+            <div className="float-right">
+              <button type="button" className="close" aria-label="Close" id="closeButton" style={{display: "none"}}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
         </div>
         <div className="container-fluid">
           <div className="d-flex flex-row">
