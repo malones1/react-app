@@ -174,9 +174,9 @@ class App extends React.Component {
                 <img src={person} width="20" height="20" alt="" />
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink1">
-                <a className="dropdown-item" href="#">Action</a>
-                <a className="dropdown-item" href="#">Another action</a>
-                <a className="dropdown-item" href="#">Something else here</a>
+                <a className="dropdown-item" href="#">Войти</a>
+                <a className="dropdown-item" href="#">Профиль</a>
+                <a className="dropdown-item" href="#">Выйти</a>
               </div>
             </div>
           </div>
