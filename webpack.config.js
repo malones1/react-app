@@ -16,15 +16,33 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
+      // {
+      //   test: /\.svg$/,
+      //   resourceQuery: '/inline/', // foo.css?inline
+      //   use: 'react-svg-loader'
+      // },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {}
-          }
-        ]
+        use: 'file-loader'
       },
+      // {
+      //   test: '/\.svg$/',
+      //   oneOf: [
+      //     {
+      //       // resourceQuery: '/inline/', // foo.css?inline
+      //       use: 'react-svg-loader'
+      //     },
+      //     {
+      //       use: 'file-loader'
+      //     }
+      //   ]
+      // },
+      // use: [
+        //   {
+        //     loader: 'file-loader',
+        //     options: {}
+        //   }
+        // ]
       // {
       //   test: /\.svg$/,
       //   use: [
@@ -41,7 +59,11 @@ module.exports = {
       {
         test: /\.txt$/,
         use: 'raw-loader'
-      }
+      },
+      // {
+      //   test: /\.svg$/, 
+      //   use: 'react-svg-loader'
+      // }
       //,
       // {
       //   test: /\.ttf$/,

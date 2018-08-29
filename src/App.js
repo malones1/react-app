@@ -6,6 +6,9 @@ import Welcome from "./Welcome";
 import checklist from "./../public/svg/checklist.svg";
 import gear from "./../public/svg/gear.svg";
 import person from "./../public/svg/person.svg";
+// import Image1 from '-!react-svg-loader!./../public/svg/person.svg';
+// import MyIcon from 'svg-react-loader?name=MyIcon!./../public/svg/person.svg';
+import Image1 from '-!react-svg-loader!./../public/svg/person.svg?inline';
 import TestLoader from "./../test_loader.txt"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -135,7 +138,6 @@ class App extends React.Component {
     //   {name: "votingsList", content: ""},
     //   {name: "addNewVoting", content: ""}
     // ];
-
     var currentTabContent = this.state.isLoaded ? this.state.tabContent != undefined ? this.state.tabContent : this.getDefaultTab() : <span></span>;
 
     return (
@@ -211,6 +213,7 @@ class App extends React.Component {
             <div className="col" id="content">
               {/* {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>} */}
               {/* <span dangerouslySetInnerHTML={{__html: gear}}></span> */}
+              {/* <Image1 width={50} height={50} style={{fill: "green"}}/> */}
               <div className="mt-4">{currentTabContent}</div>
             </div>
           </div>
