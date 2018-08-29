@@ -6,6 +6,7 @@ import Welcome from "./Welcome";
 import checklist from "./../public/svg/checklist.svg";
 import gear from "./../public/svg/gear.svg";
 import person from "./../public/svg/person.svg";
+import TestLoader from "./../test_loader.txt"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegistrationForm from "./RegistrationForm";
@@ -186,7 +187,7 @@ class App extends React.Component {
           </button> */}
           <div className="clearfix bg-info p-3">
             <div className="float-left">
-              <div className="">Чат</div>
+              <div className="text-light font-weight-bold">Чат</div>
             </div>
             <div className="float-right">
               <button type="button" className="close" aria-label="Close" id="closeButton" style={{display: "none"}}>
@@ -209,6 +210,7 @@ class App extends React.Component {
           <div className="row justify-content-center">
             <div className="col" id="content">
               {/* {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>} */}
+              {/* <span dangerouslySetInnerHTML={{__html: gear}}></span> */}
               <div className="mt-4">{currentTabContent}</div>
             </div>
           </div>

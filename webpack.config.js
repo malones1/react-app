@@ -24,6 +24,23 @@ module.exports = {
             options: {}
           }
         ]
+      },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: 'raw-loader',
+      //       options: {}
+      //     }
+      //   ]
+      // },
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'svg-inline-loader'
+      // },
+      {
+        test: /\.txt$/,
+        use: 'raw-loader'
       }
       //,
       // {

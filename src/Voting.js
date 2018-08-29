@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import App from "./App";
 import sync from "./../public/svg/sync.svg";
+import check from "./../public/svg/check.svg";
+
 
 function formatDate(d) {
   d = new Date(d);
@@ -101,7 +103,10 @@ class Voting extends React.Component {
         </div>
         {/* <div className="w-100"> */}
         <div className="card-footer">
-          <button type="button" className="btn btn-outline-info btn-sm" onClick={(e) => this.handleVoteClick(e)}>Отправить</button>
+          <button type="button" className="btn btn-outline-info btn-sm" onClick={(e) => this.handleVoteClick(e)}>
+            <img src={check} className="mr-1"></img>
+            Проголосовать
+          </button>
           {/* <div className="float-right">
             Проголосовали человек: {this.state.voters}
           </div> */}
