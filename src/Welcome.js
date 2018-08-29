@@ -65,9 +65,10 @@ class Welcome extends React.Component {
       } else {
         return (
           <div>
+            <h1>Все голосования</h1>
             {
-              items.map(item => (
-                <Voting voting={item} key={item.ID} />
+              items.map((item, i) => (
+                <Voting voting={item} key={item.ID} number={i} />
                 )
               )
             }

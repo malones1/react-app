@@ -14,7 +14,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.svg$/,
@@ -24,7 +24,36 @@ module.exports = {
             options: {}
           }
         ]
+      },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: 'raw-loader',
+      //       options: {}
+      //     }
+      //   ]
+      // },
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'svg-inline-loader'
+      // },
+      {
+        test: /\.txt$/,
+        use: 'raw-loader'
       }
+      //,
+      // {
+      //   test: /\.ttf$/,
+      //   use: [
+      //     {
+      //       loader: 'ttf-loader',
+      //       options: {
+      //         name: './font/[hash].[ext]',
+      //       },
+      //     },
+      //   ]
+      // }
     ]
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
@@ -39,5 +68,5 @@ module.exports = {
     publicPath: "http://localhost:3000/dist/",
     hotOnly: true
   },
-  plugins: [ new webpack.HotModuleReplacementPlugin() ]
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };

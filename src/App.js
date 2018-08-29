@@ -6,8 +6,10 @@ import Welcome from "./Welcome";
 import checklist from "./../public/svg/checklist.svg";
 import gear from "./../public/svg/gear.svg";
 import person from "./../public/svg/person.svg";
+import TestLoader from "./../test_loader.txt"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RegistrationForm from "./RegistrationForm";
 
 /*class App extends Component{
   render(){
@@ -23,7 +25,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: "votingsList" 
+      currentTab: "votingsList"
     };
   }
 
@@ -33,15 +35,19 @@ class App extends React.Component {
 
   sidebarClick() {
     document.getElementById("sidebar1").style.width = "0";
+    document.getElementById("closeButton").style.display = "none";
   }
 
   sidebarClick1() {
     document.getElementById("sidebar1").style.width = "300px";
+    setTimeout(() => {
+      document.getElementById("closeButton").style.display = "";
+    }, 500);
   }
 
   addVoting(e) {
     e.preventDefault();
-    fetch(App.serverAddr() + '/add', {mode: "cors"})
+    fetch(App.serverAddr() + '/add', { mode: "cors" })
       .then(res => res.json())
       .then((json) => {
         this.state.items.push(json);
@@ -50,10 +56,6 @@ class App extends React.Component {
         });
       }
       )
-    // this.state.items.push(this.state.items[this.state.items.length - 1]);
-    //   this.setState({
-    //     items: this.state.items
-    //   });
   }
 
   getVotingList() {
@@ -101,29 +103,27 @@ class App extends React.Component {
   }
 
   showVotingsList(e) {
-    // const el = this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>;
-    // ReactDOM.render(
-    //   el,
-    //   document.getElementById("content")
-    // );
     e.preventDefault();
     this.setState({
       currentTab: "votingsList",
-      tabContent: this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>  
+      tabContent: this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>
     });
   }
 
   showAddPage(e) {
-    // const el = <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />;
-    // ReactDOM.render(
-    //   el,
-    //   document.getElementById("content")
-    // );
     e.preventDefault();
     this.setState({
       currentTab: "addNewVoting",
-      tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />  
+      tabContent: <AddVotingForm onAddNewVoting={this.onAddNewVoting.bind(this)} />
     });
+  }
+
+  showRegistationForm(e) {
+    e.preventDefault();
+    this.setState({
+      currentTab: "registrationForm",
+      tabContent: <RegistrationForm />
+    })
   }
 
   getDefaultTab() {
@@ -174,17 +174,27 @@ class App extends React.Component {
                 <img src={person} width="20" height="20" alt="" />
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink1">
+                <a className="dropdown-item" href="#" onClick={(e) => this.showRegistationForm(e)}>Регистрация</a>
                 <a className="dropdown-item" href="#">Войти</a>
                 <a className="dropdown-item" href="#">Профиль</a>
-                <a className="dropdown-item" href="#">Выйти</a>
               </div>
             </div>
           </div>
         </nav>
-        <div id="sidebar1" className="sidebar bg" style={{ bottom: "0px" }} onClick={(e) => this.sidebarClick(e)}>
-          <button type="button" className="close mr-3 mt-3" aria-label="Close">
+        <div id="sidebar1" className="sidebar bg border border-light" style={{ bottom: "0px" }} onClick={(e) => this.sidebarClick(e)}>
+          {/* <button type="button" className="close mr-3 mt-3" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> */}
+          <div className="clearfix bg-info p-3">
+            <div className="float-left">
+              <div className="text-light font-weight-bold">Чат</div>
+            </div>
+            <div className="float-right">
+              <button type="button" className="close" aria-label="Close" id="closeButton" style={{display: "none"}}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
         </div>
         <div className="container-fluid">
           <div className="d-flex flex-row">
@@ -196,11 +206,12 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-7 col-sm-7" id="content">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col" id="content">
               {/* {this.state.isLoaded ? <Welcome votingList={this.state.items} /> : <span></span>} */}
-              {currentTabContent}
+              {/* <span dangerouslySetInnerHTML={{__html: gear}}></span> */}
+              <div className="mt-4">{currentTabContent}</div>
             </div>
           </div>
         </div>
