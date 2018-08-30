@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import "./App.css";
 import AddVotingForm from "./AddVotingForm";
 import Welcome from "./Welcome";
-import checklist from './../public/svg/checklist.svg?url';
-import gear from './../public/svg/gear.svg?url';
-import person from './../public/svg/person.svg?url';
+// import checklist from './../public/svg/checklist.svg?url';
+import ChecklistImage from './../public/svg/checklist.svg?react';
+// import gear from './../public/svg/gear.svg?url';
+// import person from './../public/svg/person.svg?url';
+import GearImage from './../public/svg/gear.svg?react';
+import PersonImage from './../public/svg/person.svg?react';
 // import Image1 from '-!react-svg-loader!./../public/svg/person.svg';
 // import MyIcon from 'svg-react-loader?name=MyIcon!./../public/svg/person.svg';
-// import Image1 from '-!react-svg-loader!./../public/svg/person.svg?inline';
+// import Image1 from 'react-svg-loader!./../public/svg/person.svg';
 import TestLoader from "./../test_loader.txt"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -144,7 +147,9 @@ class App extends React.Component {
       <div>
         <nav className="navbar navbar-expand-sm navbar-light" style={{ backgroundColor: "#ffffff" }}>
           <a className="navbar-brand" href="#">
-            <img src={checklist} width="20" height="20" className="d-inline-block" alt="" /> Голосование
+            {/* <img src={checklist} width="20" height="20" className="d-inline-block" alt="" />  */}
+            <ChecklistImage width={20} height={20} className="d-inline-block mr-1" />
+            Голосование
           </a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -168,12 +173,14 @@ class App extends React.Component {
             </ul>
             <div className="dropdown">
               <a className="mr-2" href="#collapseExample1" onClick={(e) => this.sidebarClick1(e)}>
-                <img src={gear} width="20" height="20" alt="" />
+                {/* <img src={gear} width="20" height="20" alt="" /> */}
+                <GearImage width={20} height={20} />
               </a>
             </div>
             <div className="dropdown">
               <a href="#" data-toggle="dropdown" id="dropdownMenuLink1" aria-expanded="false">
-                <img src={person} width="20" height="20" alt="" />
+                {/* <img src={person} width="20" height="20" alt="" /> */}
+                <PersonImage width={20} height={20} className="svg-black" />
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink1">
                 <a className="dropdown-item" href="#" onClick={(e) => this.showRegistationForm(e)}>Регистрация</a>

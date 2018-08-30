@@ -19,6 +19,14 @@
     width: 100px;
 }
 
+.svg-current-color {
+    fill: currentColor;
+}
+
+.svg-black {
+    fill: rgba(0,0,0,.9);
+}
+
 .card.bg, .bg, li.bg {
     /* background-color: #e6e6e6; */
     /* background-color: #f5f2f0; */

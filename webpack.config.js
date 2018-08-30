@@ -29,6 +29,18 @@ module.exports = {
                 use: ['file-loader']
             },
             {
+                test: /\.svg$/,
+                resourceQuery: /react/,
+                use: [
+                    {
+                        loader: 'react-svg-loader',
+                        // options: {
+                        //     jsx: true // true outputs JSX tags
+                        // }
+                    }
+                ]
+            },
+            {
                 test: /\.txt$/,
                 use: 'raw-loader'
             }

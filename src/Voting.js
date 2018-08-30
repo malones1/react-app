@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import App from "./App";
+import SyncImage from './../public/svg/sync.svg?react';
 import sync from './../public/svg/sync.svg?url';
-import check from './../public/svg/check.svg?url';
-
+import CheckImage from './../public/svg/check.svg?react';
 
 function formatDate(d) {
   d = new Date(d);
@@ -104,7 +104,8 @@ class Voting extends React.Component {
         {/* <div className="w-100"> */}
         <div className="card-footer">
           <button type="button" className="btn btn-outline-info btn-sm" onClick={(e) => this.handleVoteClick(e)}>
-            <img src={check} className="mr-1"></img>
+            {/* <img src={check} className="mr-1"></img> */}
+            <CheckImage className="mr-1 svg-current-color" />
             Проголосовать
           </button>
           {/* <div className="float-right">
@@ -113,9 +114,8 @@ class Voting extends React.Component {
           <div className="float-right">
             Уже проголосовали
             <span className="badge badge-primary badge-pill ml-1">{this.state.voters}</span>
-
               <a href="#" onClick={(e) => this.RefreshVoting(e)}>
-                <img src={sync} alt="" style={{width: "26px", height: "26px"}} />
+                <SyncImage width={26} height={26} className="text-secondary svg-current-color" />
               </a>
           </div>
         </div>
