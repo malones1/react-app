@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import App from "./App";
-import sync from "./../public/svg/sync.svg";
-import check from "./../public/svg/check.svg";
+import sync from './../public/svg/sync.svg?url';
+import check from './../public/svg/check.svg?url';
 
 
 function formatDate(d) {

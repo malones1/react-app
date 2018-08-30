@@ -18,14 +18,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                resourceQuery: [
-                    // (a) => {
-                    //     console.log(a);
-                    //     // console.trace('Show me');
-                    //     return false;
-                    // },
-                    /url/
-                ],
+                resourceQuery: '/raw/',
                 use: ['file-loader']
             },
             {

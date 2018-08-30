@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import "./App.css";
 import AddVotingForm from "./AddVotingForm";
 import Welcome from "./Welcome";
-import checklist from "./../public/svg/checklist.svg";
-import gear from "./../public/svg/gear.svg";
-import person from "./../public/svg/person.svg";
+import checklist from './../public/svg/checklist.svg?url';
+import gear from './../public/svg/gear.svg?url';
+import person from './../public/svg/person.svg?url';
 // import Image1 from '-!react-svg-loader!./../public/svg/person.svg';
 // import MyIcon from 'svg-react-loader?name=MyIcon!./../public/svg/person.svg';
-import Image1 from '-!react-svg-loader!./../public/svg/person.svg?inline';
+// import Image1 from '-!react-svg-loader!./../public/svg/person.svg?inline';
 import TestLoader from "./../test_loader.txt"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
