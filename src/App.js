@@ -36,7 +36,8 @@ class App extends React.Component {
   }
 
   static serverAddr() {
-    return "http://localhost:7777";
+    // return "http://localhost:7777";
+    return "http://localhost:1111";
   }
 
   sidebarClick() {
