@@ -1,15 +1,22 @@
 'use strict';
 
 const fs = require('fs');
-
-var data_json = JSON.parse(fs.readFileSync('data.json'));
-
-// fs.readFile('data.json', (err, data) => {
-//     if (err) {
-//         throw err;
-//     }
-//     data_json = JSON.parse(data);
-// });
+const filename = 'data.json';
 
 
-module.exports = data_json;
+let get = () => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filename, (err, data) => {
+            console.log("Reading json from %s", filename);
+            if (err) {
+                reject(err);
+            }
+
+            resolve(JSON.parse(data));
+        });
+    });
+};
+
+exports.init = async () => {
+    return await get();
+};
